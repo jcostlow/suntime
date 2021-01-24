@@ -23,6 +23,7 @@ def main():
         print (suntime)
         thisday = thisday + datetime.timedelta(days=1)
         if args.icsfile:
+            # TODO, add an argument for the title of the calendar entry.
             e=ics.event.Event(name='Sun time', begin = suntime, duration= {'minutes':10} )
             c.events.add(e)
     if args.icsfile:
@@ -66,6 +67,7 @@ def parse_arguments():
         '--elevation', type=float, help='Elevation on the sun in degrees, dawn=0, dusk=180', default=174
     )
     parser.add_argument('--icsfile', type=argparse.FileType('w') )
+    # TODO, add an argument for whether to set or disable an alarm on the calendar entry.
 
     return parser.parse_args()
 
